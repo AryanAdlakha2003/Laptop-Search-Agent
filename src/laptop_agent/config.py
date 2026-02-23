@@ -19,13 +19,13 @@ class Config:
     # -------------------------
     # API Keys
     # -------------------------
-    GOOGLE_API_KEY: str = os.getenv("GOOGLE_API_KEY", "")
+    GROQ_API_KEY: str = os.getenv("GROQ_API_KEY", "")
     TAVILY_API_KEY: str = os.getenv("TAVILY_API_KEY", "")
 
     # -------------------------
     # Model Settings
     # -------------------------
-    MODEL_ID: str = "gemini/gemini-2.0-flash"
+    MODEL_ID: str = "groq/llama-3.3-70b-versatile"
     MAX_TOKENS: int = 2096
     TEMPERATURE: float = 0.5
 
@@ -51,6 +51,8 @@ class Config:
     SERVER_PORT: int = 7860
     SHARE_APP: bool = False
 
+    PROMPTS_PATH: str = "prompts/prompts.yaml"
+
 
 def validate_config() -> None:
     """
@@ -58,7 +60,7 @@ def validate_config() -> None:
     Raises EnvironmentError if any required key is missing.
     """
     required_keys = {
-        "GOOGLE_API_KEY": Config.GOOGLE_API_KEY,
+        "GROQ_API_KEY": Config.GROQ_API_KEY,
         "TAVILY_API_KEY": Config.TAVILY_API_KEY,
     }
 
